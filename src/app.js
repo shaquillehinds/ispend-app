@@ -20,19 +20,6 @@ store.dispatch(addExpense({ description: "Water Bill", amount: 4500 }));
 store.dispatch(addExpense({ description: "Rent", amount: 109500 }));
 store.dispatch(addExpense({ description: "Gas Bill", createdAt: 1000 }));
 
-// setTimeout(() => {
-//   store.dispatch(setTextFilter("rent"));
-// }, 3000);
-// setTimeout(() => {
-//   store.dispatch(setTextFilter("water"));
-// }, 6000);
-// setTimeout(() => {
-//   store.dispatch(setTextFilter("bill"));
-// }, 9000);
-// setTimeout(() => {
-//   store.dispatch(setTextFilter(""));
-// }, 12000);
-
 const jsx = (
   <Provider store={store}>
     <AppRouter />
