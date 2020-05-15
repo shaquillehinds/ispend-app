@@ -25,5 +25,5 @@ const ExpenseListItem = (props) => {
     </tr>
   );
 };
-
+export { ExpenseListItem };
 export default connect()(ExpenseListItem);

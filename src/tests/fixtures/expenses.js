@@ -29,6 +29,29 @@ const expenses = [
     createdAt: date1,
   },
 ];
+const expensesStatic = [
+  {
+    id: "1",
+    description: "light bill",
+    note: "pay the light bill",
+    amount: 10000,
+    createdAt: 2000,
+  },
+  {
+    id: "2",
+    description: "water bill",
+    note: "pay the water bill",
+    amount: 7200,
+    createdAt: 3000,
+  },
+  {
+    id: "3",
+    description: "phone bill",
+    note: "pay the phone bill",
+    amount: 3000,
+    createdAt: 1000,
+  },
+];
 const filter = (
   text = "",
   sortBy = "amount",
@@ -41,4 +64,4 @@ const filter = (
   endDate,
 });
 
-export { expenses, filter, dates };
+export { expenses, filter, dates, expensesStatic };
