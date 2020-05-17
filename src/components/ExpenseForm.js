@@ -2,12 +2,11 @@ import React from "react";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 // const date = new Date();
 
-class ExpenseForm extends React.Component {
+export default class ExpenseForm extends React.Component {
   state = {
     description: "",
     note: "",
@@ -102,4 +101,4 @@ class ExpenseForm extends React.Component {
   }
 }
 
-export default connect()(ExpenseForm);
+// export default connect()(ExpenseForm);

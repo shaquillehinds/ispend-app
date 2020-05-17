@@ -4,30 +4,33 @@ import { editExpense, removeExpense } from "../actions/expenses";
 import ExpenseForm from "./ExpenseForm";
 const EditExpensePage = (props) => {
   const removeItemHandler = (e) => {
-    e.target.innerText === "Confirm" && props.dispatch(removeExpense({ id: props.match.params.id }));
+    e.target.innerText === "Confirm" && props.removeExpense({ id: props.match.params.id });
     e.target.innerText === "Confirm" && props.history.push("/");
     e.target ? (e.target.innerText = "Confirm") : null;
   };
+  const submitExpense = (expense) => {
+    const id = props.match.params.id;
+    props.editExpense(id, expense);
+    props.history.push("/");
+  };
+  const cancelExpense = () => props.history.push("/");
   return (
     <div>
       <h1>Edit Expense</h1>
-      <ExpenseForm
-        onSubmit={(expense) => {
-          const id = props.match.params.id;
-          props.dispatch(editExpense(id, expense));
-          props.history.push("/");
-        }}
-        expense={props.expenses}
-      />
+      <ExpenseForm onSubmit={submitExpense} expense={props.expense} />
       <button onClick={removeItemHandler}>Remove</button>
 
-      <button onClick={() => props.history.push("/")}>Cancel</button>
+      <button onClick={cancelExpense}>Cancel</button>
     </div>
   );
 };
 
 const mapStateToProps = (state, props) => ({
-  expenses: state.expenses.find((expense) => expense.id === props.match.params.id),
+  expense: state.expenses.find((expense) => expense.id === props.match.params.id),
 });
-
-export default connect(mapStateToProps)(EditExpensePage);
+const mapDispatchToProps = (dispatch, props) => ({
+  editExpense: (id, expense) => dispatch(editExpense(id, expense)),
+  removeExpense: (id) => dispatch(removeExpense(id)),
+});
+export { EditExpensePage };
+export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);
