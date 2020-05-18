@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server/server.js",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server",
     "test": "jest --config=jest.config.json"
@@ -22,9 +23,11 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
+    "express": "^4.17.1",
     "jest": "^25.5.3",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
