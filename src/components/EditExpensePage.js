@@ -4,11 +4,10 @@ import { startEditExpense, startRemoveExpense } from "../actions/expenses";
 import ExpenseForm from "./ExpenseForm";
 
 const EditExpensePage = (props) => {
-  const removeItemHandler = async (e) => {
+  const removeItemHandler = (e) => {
     e.persist();
-    e.target.innerText === "Confirm" &&
-      props.startRemoveExpense(props.match.params.id) &&
-      props.history.push("/");
+    e.target.innerText === "Confirm" && props.startRemoveExpense(props.match.params.id);
+    e.target.innerText === "Confirm" && props.history.push("/");
     e.target ? (e.target.innerText = "Confirm") : null;
   };
   const submitExpense = (expense) => {

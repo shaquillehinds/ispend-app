@@ -7,7 +7,7 @@
     "start": "node server/server.js",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server",
-    "test": "jest --config=jest.config.json"
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.json --runInBand"
   },
   "author": "",
   "license": "ISC",
@@ -37,6 +37,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0",
     "uuid": "^7.0.3",
     "validator": "^8.0.0",
@@ -46,6 +47,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",

@@ -17,7 +17,7 @@ test("should sort expenses by amount", () => {
 test("should filter expenses by start Date", () => {
   const filteredExpenses = getVisibleExpenses(
     expenses,
-    filter("", "date", moment(new Date().setDate(15)))
+    filter("", "date", moment(new Date().setDate(15)), undefined)
   );
   expect(filteredExpenses).toEqual([expenses[1], expenses[0]]);
 });

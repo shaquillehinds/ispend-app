@@ -11,14 +11,13 @@ exports[`should render ExpenseList with empty message 1`] = `
         <th>
           Amount
         </th>
-        <th>
-          CreatedAt
-        </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>
+        <td
+          colSpan="2"
+        >
           No Expenses
         </td>
       </tr>
@@ -37,9 +36,6 @@ exports[`should render ExpenseList with expenses 1`] = `
         </th>
         <th>
           Amount
-        </th>
-        <th>
-          CreatedAt
         </th>
       </tr>
     </thead>

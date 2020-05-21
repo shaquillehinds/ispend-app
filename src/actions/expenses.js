@@ -6,11 +6,12 @@ export const addExpense = (expense) => ({
   expense,
 });
 
-export const startAddExpense = ({ description = "", note = "", amount = 0, createdAt = 0 }) => {
+export const startAddExpense = (expenseData = {}) => {
   return async (dispatch) => {
-    const expenseData = { description, note, amount, createdAt };
-    const res = await database.ref("expenses").push(expenseData);
-    dispatch(addExpense({ id: res.key, ...expenseData }));
+    const { description = "", note = "", amount = 0, createdAt = 0 } = expenseData;
+    const expense = { description, note, amount, createdAt };
+    const res = await database.ref("expenses").push(expense);
+    return dispatch(addExpense({ id: res.key, ...expense }));
   };
 };
 

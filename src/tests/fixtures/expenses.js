@@ -1,4 +1,4 @@
-import moment from "moment";
+const moment = require.requireActual("moment");
 
 const date1 = new Date().setDate(9);
 const date2 = new Date().setDate(18);

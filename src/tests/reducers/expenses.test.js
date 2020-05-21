@@ -10,6 +10,7 @@ beforeEach(() => {
 
 test("should add expenses to reducer state", () => {
   const newExpense = {
+    id: "1234",
     description: "internet bill",
     note: "pay the internet bill",
     amount: 8500,
@@ -19,7 +20,7 @@ test("should add expenses to reducer state", () => {
   expect(newState).toEqual([
     ...state,
     {
-      id: expect.any(String),
+      id: "1234",
       description: "internet bill",
       note: "pay the internet bill",
       amount: 8500,
@@ -29,7 +30,7 @@ test("should add expenses to reducer state", () => {
 });
 
 test("should remove expense from state", () => {
-  const newState = expenseReducer(state, removeExpense({ id: "2" }));
+  const newState = expenseReducer(state, removeExpense("2"));
   expect(newState).toEqual([expenses[0], expenses[2]]);
 });
 
