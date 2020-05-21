@@ -23,7 +23,7 @@ module.exports = {
       },
     ],
   },
-  plugins: [new miniCssExtractPlugin({ filename: "style.css" }), new Dotenv()],
+  plugins: [new Dotenv(), new miniCssExtractPlugin({ filename: "style.css" })],
 };
 
 //loader
