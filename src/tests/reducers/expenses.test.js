@@ -1,5 +1,5 @@
 import expenseReducer from "../../reducers/expenses";
-import { addExpense, removeExpense, editExpense } from "../../actions/expenses";
+import { addExpense, removeExpense, editExpense, setExpenses } from "../../actions/expenses";
 import { dates, expenses, filter } from "../fixtures/expenses";
 
 let state;
@@ -48,4 +48,10 @@ test("should edit an expense from state", () => {
       createdAt: dates[0],
     },
   ]);
+});
+
+test("should set expenses", () => {
+  const action = setExpenses([expenses[2]]);
+  const newState = expenseReducer(state, action);
+  expect(newState).toEqual([expenses[2]]);
 });
