@@ -1,4 +1,4 @@
-import database from "../firebase/database";
+import database from "../firebase/firebase";
 
 //ADD_EXPENSE
 export const addExpense = (expense) => ({
@@ -38,7 +38,7 @@ export const editExpense = (id, updates) => ({
 export const startEditExpense = (id, updates) => {
   return async (dispatch) => {
     await database.ref(`expenses/${id}`).update(updates);
-    dispatch(editExpense(id, updates));
+    return dispatch(editExpense(id, updates));
   };
 };
 //REMOVE_ALL_EXPENSES

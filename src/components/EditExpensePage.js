@@ -15,7 +15,7 @@ const EditExpensePage = (props) => {
     props.startEditExpense(id, expense);
     props.history.push("/");
   };
-  const cancelExpense = () => props.history.push("/");
+  const cancelExpense = () => props.history.push("/dashboard");
   return (
     <div>
       <h1>Edit Expense</h1>
