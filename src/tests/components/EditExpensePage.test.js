@@ -41,5 +41,5 @@ test("Should handle removeExpense", () => {
 
 test("should handle cancel button click", () => {
   wrapper.find("button").at(1).simulate("click");
-  expect(history.push).toHaveBeenLastCalledWith("/");
+  expect(history.push).toHaveBeenLastCalledWith("/dashboard");
 });

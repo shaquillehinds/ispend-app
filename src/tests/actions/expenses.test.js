@@ -14,9 +14,10 @@ import thunk from "redux-thunk";
 import database from "../../firebase/firebase";
 
 const createMockStore = configureMockStore([thunk]);
+const uid = "thisismytestuid";
 let store, expensesData;
 beforeEach(async () => {
-  store = createMockStore({});
+  store = createMockStore({ auth: { uid } });
   expensesData = {};
   expenses.forEach(({ id, description, note, amount, createdAt }) => {
     expensesData[id] = {
@@ -26,7 +27,7 @@ beforeEach(async () => {
       createdAt,
     };
   });
-  await database.ref("expenses").set(expensesData);
+  await database.ref(`users/${uid}/expenses`).set(expensesData);
 });
 
 test("should setup remove expense action object", () => {
@@ -73,7 +74,7 @@ test("should add expense to database and store", async () => {
     type: "ADD_EXPENSE",
     expense: { ...expenses[0], id: expect.any(String) },
   });
-  const snapshot = await database.ref(`expenses/${dispatched.expense.id}`).once("value");
+  const snapshot = await database.ref(`users/${uid}/expenses/${dispatched.expense.id}`).once("value");
   expect(snapshot.key).toBe(dispatched.expense.id);
 });
 
@@ -89,7 +90,7 @@ test("should add expense with defaults database and store", async () => {
       createdAt: 0,
     },
   });
-  const snapshot = await database.ref(`expenses/${dispatched.expense.id}`).once("value");
+  const snapshot = await database.ref(`users/${uid}/expenses/${dispatched.expense.id}`).once("value");
   expect(snapshot.key).toBe(dispatched.expense.id);
 });
 
@@ -99,7 +100,7 @@ test("should remove expense from database and store", async () => {
     type: "REMOVE_EXPENSE",
     id: expenses[0].id,
   });
-  const snapshot = await database.ref(`expenses/${expenses[0].id}`).once("value");
+  const snapshot = await database.ref(`users/${uid}/expenses/${expenses[0].id}`).once("value");
   expect(snapshot.val()).toBeNull();
 });
 
@@ -112,7 +113,7 @@ test("should edit expense from firebase", async () => {
     id,
     updates,
   });
-  const snapshot = await database.ref(`expenses/${id}`).once("value");
+  const snapshot = await database.ref(`users/${uid}/expenses/${id}`).once("value");
   expect(snapshot.val()).toEqual(updates);
 });
 
