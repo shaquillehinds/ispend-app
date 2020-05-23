@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/initialize";
+import { history } from "../routers/AppRouter";
 // import { connect } from "react-redux";
 
 // const date = new Date();
@@ -48,6 +49,7 @@ export default class ExpenseForm extends React.Component {
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ calendarFocused: focused }));
   };
+  cancelExpense = () => history.push("/dashboard");
   onSubmit = (e) => {
     e.preventDefault();
 
@@ -65,10 +67,11 @@ export default class ExpenseForm extends React.Component {
   };
   render() {
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
+      <div className="content-container">
+        <form className="form" onSubmit={this.onSubmit}>
+          {this.state.error && <p className="form__error">{this.state.error}</p>}
           <input
+            className="text-input"
             value={this.state.description}
             onChange={this.onDescriptionChange}
             type="text"
@@ -76,8 +79,9 @@ export default class ExpenseForm extends React.Component {
             autoFocus
           />
           <input
+            className="text-input"
             type="text"
-            placeholder="amount"
+            placeholder="Amount"
             value={this.state.amount}
             onChange={this.onAmountChange}
           />
@@ -90,11 +94,21 @@ export default class ExpenseForm extends React.Component {
             isOutsideRange={() => false}
           />
           <textarea
+            className="textarea"
             value={this.state.note}
             onChange={this.onNoteChange}
             placeholder="Add a note for your expense (Optional)"
           ></textarea>
-          <input type="submit" value="Submit" />
+          <div className="button-container">
+            <div>
+              <input className="button" type="submit" value="Save Expense" />
+            </div>
+            <div>
+              <button className="button button--dark-grey" onClick={this.cancelExpense}>
+                Cancel
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     );

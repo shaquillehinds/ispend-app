@@ -1,0 +1,31 @@
+.button {
+  color: $white;
+  border: none;
+  display: inline-block;
+  text-decoration: none;
+  background-color: $blue;
+  padding: $s-size;
+  font-weight: 300;
+  line-height: 1;
+  font-size: $font-size-large;
+
+  &--no-bg {
+    background: none;
+  }
+  &--red {
+    background-color: darken(red, 10%);
+  }
+  &--dark-grey {
+    background-color: $dark-grey;
+  }
+
+  &-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    & > * {
+      margin-right: 3rem;
+    }
+  }
+}

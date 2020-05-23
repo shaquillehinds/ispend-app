@@ -5,18 +5,21 @@ import selectExpenses from "../selectors/expenses";
 
 export const ExpenseList = (props) => {
   return (
-    <div>
-      <table>
+    <div className="content-container">
+      <table className="expense-list">
         <thead>
-          <tr>
-            <th>Expense</th>
-            <th>Amount</th>
+          <tr className="expense-list__head">
+            <th className="expense-list__head-expenses show-for-mobile">Expenses</th>
+            <th className="expense-list__head-expense show-for-desktop">Expense</th>
+            <th className="expense-list__head-amount show-for-desktop">Amount</th>
           </tr>
         </thead>
         <tbody>
           {props.expenses.length === 0 ? (
             <tr>
-              <td colSpan="2">No Expenses</td>
+              <td colSpan="2" className="expense-list__item-expense expense-list__item--no-expenses">
+                No Expenses
+              </td>
             </tr>
           ) : (
             props.expenses.map((expense) => <ExpenseListItem key={expense.id} {...expense} />)

@@ -1,0 +1,90 @@
+.expense-list {
+  width: 100%;
+  border: 1px solid darken($off-white, 7%);
+  border-collapse: collapse;
+
+  &__head {
+    background-color: $off-white;
+    color: $grey;
+
+    &-expense,
+    &-expenses {
+      text-align: left;
+      padding: $s-size $m-size;
+    }
+    &-amount {
+      text-align: right;
+      padding: $s-size $m-size;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid darken($off-white, 7%);
+    padding: $s-size;
+    overflow: hidden;
+    position: relative;
+
+    @media (min-width: $desktop-breakpoint) {
+      display: table-row;
+    }
+    button {
+      padding: 0;
+      width: 5rem;
+      height: 5rem;
+      outline: none;
+      font-size: 2.1rem;
+      font-weight: 500;
+      position: absolute;
+      right: 5%;
+      bottom: 5%;
+      border-radius: 3px;
+      @media (min-width: $desktop-breakpoint) {
+        transition: transform 300ms ease-out, width 300ms ease-out;
+        position: static;
+        margin-left: 1rem;
+        width: 0;
+      }
+    }
+    &:hover button {
+      width: 5rem;
+    }
+    &:hover &-link {
+      color: darken($blue, 10%);
+    }
+
+    &-expense {
+      text-align: left;
+      color: $grey;
+      padding: $s-size;
+      font-size: $font-size-small;
+    }
+    &--no-expenses {
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    &-link {
+      text-decoration: none;
+      color: #000;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      word-break: break-all;
+    }
+
+    &-amount {
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      padding-left: $s-size;
+      overflow: hidden;
+      @media (min-width: $desktop-breakpoint) {
+        text-align: right;
+        padding-right: $s-size;
+        width: 20rem;
+      }
+    }
+  }
+}

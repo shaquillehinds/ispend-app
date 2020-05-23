@@ -15,14 +15,20 @@ const EditExpensePage = (props) => {
     props.startEditExpense(id, expense);
     props.history.push("/");
   };
-  const cancelExpense = () => props.history.push("/dashboard");
+
   return (
     <div>
-      <h1>Edit Expense</h1>
+      <div className="page-header">
+        <div className="content-container">
+          <h1 className="page-header__title">Edit Expense</h1>
+        </div>
+      </div>
       <ExpenseForm onSubmit={submitExpense} expense={props.expense} />
-      <button onClick={removeItemHandler}>Remove</button>
-
-      <button onClick={cancelExpense}>Cancel</button>
+      <div className="content-container button-container">
+        <button className="button button--red" onClick={removeItemHandler}>
+          Delete Expense
+        </button>
+      </div>
     </div>
   );
 };
