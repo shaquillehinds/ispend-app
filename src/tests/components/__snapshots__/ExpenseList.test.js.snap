@@ -1,14 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseList with empty message 1`] = `
-<div>
-  <table>
+<div
+  className="content-container"
+>
+  <table
+    className="expense-list"
+  >
     <thead>
-      <tr>
-        <th>
+      <tr
+        className="expense-list__head"
+      >
+        <th
+          className="expense-list__head-expenses show-for-mobile"
+        >
+          Expenses
+        </th>
+        <th
+          className="expense-list__head-expense show-for-desktop"
+        >
           Expense
         </th>
-        <th>
+        <th
+          className="expense-list__head-amount show-for-desktop"
+        >
           Amount
         </th>
       </tr>
@@ -16,6 +31,7 @@ exports[`should render ExpenseList with empty message 1`] = `
     <tbody>
       <tr>
         <td
+          className="expense-list__item-expense expense-list__item--no-expenses"
           colSpan="2"
         >
           No Expenses
@@ -27,14 +43,29 @@ exports[`should render ExpenseList with empty message 1`] = `
 `;
 
 exports[`should render ExpenseList with expenses 1`] = `
-<div>
-  <table>
+<div
+  className="content-container"
+>
+  <table
+    className="expense-list"
+  >
     <thead>
-      <tr>
-        <th>
+      <tr
+        className="expense-list__head"
+      >
+        <th
+          className="expense-list__head-expenses show-for-mobile"
+        >
+          Expenses
+        </th>
+        <th
+          className="expense-list__head-expense show-for-desktop"
+        >
           Expense
         </th>
-        <th>
+        <th
+          className="expense-list__head-amount show-for-desktop"
+        >
           Amount
         </th>
       </tr>

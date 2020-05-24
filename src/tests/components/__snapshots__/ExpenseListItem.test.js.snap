@@ -1,24 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Expesense List Item 1`] = `
-<tr>
-  <td>
+<tr
+  className="expense-list__item"
+>
+  <td
+    className="expense-list__item-expense"
+  >
+    <Link
+      className="expense-list__item-link"
+      to="/edit/1"
+    >
+      light bill
+    </Link>
+    <p>
+      Dec 31st 1969
+    </p>
+  </td>
+  <td
+    className="expense-list__item-amount"
+  >
+    $100
     <button
+      className="button button--red"
       onClick={[Function]}
     >
       X
     </button>
-    <Link
-      to="/edit/1"
-    >
-      light bill
-      <span>
-        Dec 31st 1969
-      </span>
-    </Link>
-  </td>
-  <td>
-    $100
   </td>
 </tr>
 `;
