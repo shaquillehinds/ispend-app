@@ -41,7 +41,7 @@
     "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0",
     "uuid": "^7.0.3",
-    "validator": "^8.0.0",
+    "validator": "^13.7.0",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11"
   },
